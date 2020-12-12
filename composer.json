@@ -1,0 +1,19 @@
+{
+    "name": "sroze/voronoi",
+    "description": "It helps you to create Voronoï graphs.",
+    "type": "package",
+    "require": {
+        "php": "^7.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Samuel ROZE"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "sroze\\voronoi\\": "src/"
+        }
+    }
+}

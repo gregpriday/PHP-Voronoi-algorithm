@@ -2,7 +2,7 @@
 
 namespace sroze\voronoi\Nurbs;
 
-class Nurbs_Delaunay
+class Delaunay
 {
 	/**
 	 * Triangule les points.
@@ -68,7 +68,7 @@ class Nurbs_Delaunay
 		
 		// On créé la liste des triangles et on ajoutes le super-triangle
 		$triangles = array();
-		$triangles[] = new Nurbs_Triangle($p1, $p2, $p3);
+		$triangles[] = new Triangle($p1, $p2, $p3);
 		
 		// On ajoutes les points 1 par 1
 		for ($i = 0; $i < $nv; $i++) {
@@ -114,7 +114,7 @@ class Nurbs_Delaunay
 				}
 				
 				// On ajoutes le triangle
-				$triangles[] = new Nurbs_Triangle($edges[$j]->p1, $edges[$j]->p2, $points[$i]);
+				$triangles[] = new Triangle($edges[$j]->p1, $edges[$j]->p2, $points[$i]);
 			}
 			
 			// On purge la liste des edges

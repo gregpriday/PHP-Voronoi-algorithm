@@ -109,7 +109,7 @@ class Nurbs extends AbstractSurface
 		}
 		
 		// On utilise la librairie Delaunay pour récupère les triangles
-		$triangles = Nurbs_Delaunay::triangulate($this->_points);
+		$triangles = Delaunay::triangulate($this->_points);
 		
 		return $triangles;
 	}

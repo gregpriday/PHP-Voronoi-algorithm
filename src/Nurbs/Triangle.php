@@ -2,11 +2,13 @@
 
 namespace sroze\voronoi\Nurbs;
 
+use sroze\voronoi\Nurbs\Surface\AbstractSurface;
+
 /**
  * Représente un triangle de Delaunay.
  * 
  */ 
-class Nurbs_Triangle extends Nurbs_Surface_Abstract
+class Triangle extends AbstractSurface
 {
 	/**
 	 * On stocke les points du triangle.
@@ -104,9 +106,9 @@ class Nurbs_Triangle extends Nurbs_Surface_Abstract
 	public function pointIn (Point $point)
 	{
 		// On calcul les vecteurs
-		$v0 = Nurbs_Vector::fromPoints($this->p3, $this->p1);
-		$v1 = Nurbs_Vector::fromPoints($this->p2, $this->p1);
-		$v2 = Nurbs_Vector::fromPoints($point, $this->p1);
+		$v0 = Vector::fromPoints($this->p3, $this->p1);
+		$v1 = Vector::fromPoints($this->p2, $this->p1);
+		$v2 = Vector::fromPoints($point, $this->p1);
 		
 		// On calcul le produit scalaire des vecteurs
 		$dot00 = $v0->produitScalaire($v0);
@@ -169,13 +171,13 @@ class Nurbs_Triangle extends Nurbs_Surface_Abstract
 	 * 
 	 * @see http://fr.wikipedia.org/wiki/Plan_%28math%C3%A9matiques%29#D.C3.A9finition_par_deux_vecteurs_et_un_point
 	 * 
-	 * @return Nurbs_Vector
+	 * @return Vector
 	 */
 	public function getNormalVector ()
 	{
 		// On va calculer deux vecteurs partant de A
-		$v1 = Nurbs_Vector::fromPoints($this->p2, $this->p1);
-		$v2 = Nurbs_Vector::fromPoints($this->p3, $this->p1);
+		$v1 = Vector::fromPoints($this->p2, $this->p1);
+		$v2 = Vector::fromPoints($this->p3, $this->p1);
 		
 		// On va maintenant calculer le vecteur normal grâce au produit
 		// vectoriel.
